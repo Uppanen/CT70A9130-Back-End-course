@@ -1,4 +1,8 @@
 <%- include("partials/header") %>
         <h1><%= title %></h1>
-        <%= users%>
+        <ul>
+        <% users.forEach(function(user){ %>
+            <li><%= user.first_name %></li>
+        <% }) %>
+        </ul>
 <%- include("partials/footer") %>
