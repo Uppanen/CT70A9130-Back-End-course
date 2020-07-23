@@ -20,10 +20,18 @@ app.set('views', path.join(__dirname, 'views'));
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-app.use(expressValidator());
+
 
 //Set Static Path
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Global vars
+app.use(function(req, res, next){
+    res.locals.errors = null;
+    next();
+})
+
+app.use(expressValidator());
 
 var users = [
     {
@@ -49,10 +57,7 @@ var users = [
 ]
 
 app.get('/', function(req,res){
-    res.render('index', {
-        title: 'Customers',
-        users: users
-    });
+
 });
 
 app.post('/users/add', function(req,res){
@@ -64,7 +69,11 @@ app.post('/users/add', function(req,res){
     var errors = req.validationErrors();
 
     if(errors){
-        console.log('ERRORS');
+        res.render('index', {
+            title: 'Customers',
+            users: users,
+            errors: errors
+        });
     }else{
         var newUser = {
             first_name: req.body.first_name,
