@@ -3,5 +3,8 @@ $(document).ready(function(){
 });
 
 function deleteUser(){
-    alert(1);
+    var confirmation = confirm('Are You Sure');
+    if(confirmation){
+        alert(1);
+    }
 }
