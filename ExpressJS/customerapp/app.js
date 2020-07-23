@@ -2,6 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
+var mongojs = require('mongojs');
+var db = mongojs('customerapp', ['users']);
+
 var app = express();
 
 /*
@@ -57,7 +60,13 @@ var users = [
 ]
 
 app.get('/', function(req,res){
-
+    db.users.find(function(err, docs){
+        console.log(docs);
+        res.render('index', {
+            title: 'Customers',
+            users: users,
+        });
+    })
 });
 
 app.post('/users/add', function(req,res){
