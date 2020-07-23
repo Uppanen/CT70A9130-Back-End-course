@@ -7,10 +7,11 @@ function deleteUser(){
     if(confirmation){
         $.ajax({
             type:'DELETE',
-            url: '/users/delete/' + $('.deleteUser').data('id')
+            url: '/users/delete/' + $(this).data('id')
         }).done(function(response){
             window.location.replace('/');
         });
+        window.location.replace('/');
     } else{
         return false;
     }
