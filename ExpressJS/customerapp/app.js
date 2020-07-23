@@ -55,7 +55,7 @@ app.get('/', function(req,res){
 });
 
 app.post('/users/add', function(req,res){
-    console.log('FORM SUBMITTED');
+    console.log(req.body.first_name);
 });
 
 app.listen(3000, function(){
