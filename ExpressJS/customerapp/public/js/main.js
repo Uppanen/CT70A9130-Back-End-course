@@ -5,6 +5,13 @@ $(document).ready(function(){
 function deleteUser(){
     var confirmation = confirm('Are You Sure');
     if(confirmation){
-        alert(1);
+        $.ajax({
+            type:'DELETE',
+            url: '/users/delete/' + $('.deleteUser').data('id')
+        }).done(function(response){
+            window.location.replace('/');
+        });
+    } else{
+        return false;
     }
 }

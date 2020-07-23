@@ -77,6 +77,9 @@ app.post('/users/add', function(req,res){
         console.log('SUCCESS');
     }
 });
+app.delete('/users/delete/:id', function(req, res){
+    console.log(req.params.id);
+})
 
 app.listen(3000, function(){
     console.log('Server started on Port 3000...');
