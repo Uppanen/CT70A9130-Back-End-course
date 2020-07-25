@@ -1,0 +1,31 @@
+<%- include("partials/header") %>
+<h1>Edit item</h1>
+<% if(errors != undefined){ %>
+    <ul>
+    <% errors.forEach(function(error){ %>
+        <li><%= error.msg%></li>
+    <% }) %>
+</ul>
+<% } %>
+<form method="PUT" action="/edit">
+    <label>Name</label>
+    <input required type="text" name="name" value='<%=itemInDB.name%>'>
+    <br>
+    <label>Description</label>
+    <input required type="text" name="description" value='<%=itemInDB.description%>'>
+    <br>
+    <label>Item Code</label>
+    <input required type="text" name="code" value='<%=itemInDB.code%>'>
+    <br>
+    <label>Quantity</label>
+    <input required type="number" name="quantity" value='<%=itemInDB.quantity%>'>
+    <br>
+    <label>Weigh per item</label>
+    <input required type="number" name="weigh_per_item" value='<%=itemInDB.weigh_per_item%>'>
+    <br>
+    <label>Location</label>
+    <input type="text" name="location" value='<%=itemInDB.location%>'>
+    <br>
+    <input type="submit" value="Save">
+</form>
+<%- include("partials/footer") %>

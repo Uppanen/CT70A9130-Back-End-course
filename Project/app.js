@@ -5,6 +5,7 @@ var expressValidator = require('express-validator');
 var mongojs = require('mongojs');
 var db = mongojs('warehouse', ['items']);
 var app = express();
+var ObjectId = mongojs.ObjectId;
 
 //View Engine
 app.set('view engine', 'ejs');
@@ -34,9 +35,18 @@ app.get('/', function(req,res){
     });
     })
 });
-
+ 
 app.get('/add', function(req,res){
     res.render('add', {});
+});
+ 
+app.get('/edit/:_id', function(req,res){
+    db.warehouse.findOne({"_id": ObjectId(req.params._id)}, function(err, itemInDB){
+         res.render('edit',{
+            itemInDB:itemInDB
+         })
+    })
+
 });
 
 app.post('/add', function(req,res){

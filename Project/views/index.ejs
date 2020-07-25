@@ -15,7 +15,7 @@
           <th></th>
         </tr>
         <% items.forEach(function(item){ %>
-            <tr><td><%= item.name %></td><td><%= item.description%></td><td><%= item.code%></td><td><%= item.quantity%></td><td><%= item.weigh%></td><td><%= item.location%></td><td><a href='#' class="deleteItem" data-id="<%= item._id %>">Delete</a></td></tr>
+            <tr><td><%= item.name %></td><td><%= item.description%></td><td><%= item.code%></td><td><%= item.quantity%></td><td><%= item.weigh%></td><td><%= item.location%></td><td><a href='/edit/<%= item._id %>'>Edit</a> - <a href='#' class="deleteItem" data-id="<%= item._id %>">Delete</a></td></tr>
         <% }) %>
     </table>
 <%- include("partials/footer") %>
