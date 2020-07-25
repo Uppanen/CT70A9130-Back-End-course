@@ -1,0 +1,31 @@
+<%- include("partials/header") %>
+<h1>Add item</h1>
+<% if(errors != undefined){ %>
+    <ul>
+    <% errors.forEach(function(error){ %>
+        <li><%= error.msg%></li>
+    <% }) %>
+</ul>
+<% } %>
+<form method="POST" action="/users/add">
+    <label>Name</label>
+    <input type="text" name="name">
+    <br>
+    <label>Description</label>
+    <input type="text" name="description">
+    <br>
+    <label>Item Code</label>
+    <input type="text" name="code">
+    <br>
+    <label>Quantity</label>
+    <input type="text" name="quantity">
+    <br>
+    <label>Weigh per item</label>
+    <input type="text" name="weigh_per_item">
+    <br>
+    <label>Location</label>
+    <input type="text" name="Location">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+<%- include("partials/footer") %>

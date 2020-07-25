@@ -29,6 +29,10 @@ app.get('/', function(req,res){
     res.render('index', {});
 });
 
+app.get('/add', function(req,res){
+    res.render('add', {});
+});
+
 app.listen(3000, function(){
     console.log('Server started on Port 3000...');
 });
