@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 app.use(bodyParser.json())
 
-Genre = require('./models/genre');
+Book = require('./models/genre');
 Book = require('./models/book');
 
 // Connect to Mongoose
@@ -39,6 +39,16 @@ app.put('/api/genres/:_id', function(req, res){
     var id = req.params._id
     var genre = req.body;
     Genre.updateGenre(id, genre, {}, function(err, genre){
+        if(err){
+            throw err;
+        }
+        res.json(genre);
+    })
+})
+
+app.delete('/api/genres/:_id', function(req, res){
+    var id = req.params._id
+    Genre.deleteGenre(id, function(err, genre){
         if(err){
             throw err;
         }
@@ -85,13 +95,13 @@ app.put('/api/books/:_id', function(req, res){
     })
 })
 
-app.delete('/api/genres/:_id', function(req, res){
+app.delete('/api/books/:_id', function(req, res){
     var id = req.params._id
-    Genre.deleteGenre(id, function(err, genre){
+    Book.deleteBook(id, function(err, book){
         if(err){
             throw err;
         }
-        res.json(genre);
+        res.json(book);
     })
 })
 
