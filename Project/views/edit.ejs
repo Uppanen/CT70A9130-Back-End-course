@@ -7,7 +7,7 @@
     <% }) %>
 </ul>
 <% } %>
-<form method="PUT" action="/edit">
+<form method="POST" action="/save/<%=itemInDB._id%>">
     <label>Name</label>
     <input required type="text" name="name" value='<%=itemInDB.name%>'>
     <br>
@@ -21,11 +21,11 @@
     <input required type="number" name="quantity" value='<%=itemInDB.quantity%>'>
     <br>
     <label>Weigh per item</label>
-    <input required type="number" name="weigh_per_item" value='<%=itemInDB.weigh_per_item%>'>
+    <input required type="number" name="weigh" value='<%=itemInDB.weigh%>'>
     <br>
     <label>Location</label>
     <input type="text" name="location" value='<%=itemInDB.location%>'>
-    <br>
+    <br> 
     <input type="submit" value="Save">
 </form>
 <%- include("partials/footer") %>

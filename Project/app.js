@@ -29,7 +29,6 @@ app.use(expressValidator());
 
 app.get('/', function(req,res){
     db.warehouse.find(function(err, docs){
-        console.log(docs);
     res.render('index', {
         items:docs
     });
@@ -48,6 +47,17 @@ app.get('/edit/:_id', function(req,res){
     })
 
 });
+
+app.post('/save/:_id', function(req, res){
+    var update = {name:'laa'};
+    db.warehouse.updateOne({"_id": ObjectId(req.params._id)}, {$set:req.body}, {upsert:true}, function(err, itemInDB){
+        if(err){
+            throw err;
+        }
+        res.redirect('/');
+    });
+    
+})
 
 app.post('/add', function(req,res){
     
@@ -78,7 +88,6 @@ app.post('/add', function(req,res){
             res.redirect('/');
 
         });
-        console.log('SUCCESS');
     }
 });
 
