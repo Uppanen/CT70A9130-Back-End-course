@@ -75,3 +75,12 @@ app.post('/add', function(req,res){
 app.listen(3000, function(){
     console.log('Server started on Port 3000...');
 });
+
+app.delete('/delete/:id', function(req, res){
+    db.warehouse.remove({_id: mongojs.ObjectId(req.params.id), function(err, result){
+        if(error){
+            console.log(err);
+        }
+        res.redirect('/');
+    }});
+})
