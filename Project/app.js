@@ -27,7 +27,12 @@ app.use(function(req, res, next){
 app.use(expressValidator());
 
 app.get('/', function(req,res){
-    res.render('index', {});
+    db.warehouse.find(function(err, docs){
+        console.log(docs);
+    res.render('index', {
+        items:docs
+    });
+    })
 });
 
 app.get('/add', function(req,res){
