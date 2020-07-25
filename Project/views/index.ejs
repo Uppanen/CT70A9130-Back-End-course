@@ -1,6 +1,8 @@
 <%- include("partials/header") %>
     <h1>Warehouse inventory management</h1>
     <br>
+    <a href="/add">Add item</a>
+    <br>
     <h4>Current inventory</h4>
     <table style="min-width: 40%; text-align: center;">
         <tr>
@@ -8,11 +10,12 @@
           <th>Description</th>
           <th>Quantity</th>
           <th>Code</th>
-          <th>Weigh</th>
+          <th>Weight</th>
+          <th>Location</th>
           <th></th>
         </tr>
         <% items.forEach(function(item){ %>
-            <tr><td><%= item.name %></td><td><%= item.description%></td><td><%= item.code%></td><td><%= item.quantity%></td><td><%= item.weigh%></td><td><a href='#' class="deleteItem" data-id="<%= item._id %>">Delete</a></td></tr>
+            <tr><td><%= item.name %></td><td><%= item.description%></td><td><%= item.code%></td><td><%= item.quantity%></td><td><%= item.weigh%></td><td><%= item.location%></td><td><a href='#' class="deleteItem" data-id="<%= item._id %>">Delete</a></td></tr>
         <% }) %>
     </table>
 <%- include("partials/footer") %>

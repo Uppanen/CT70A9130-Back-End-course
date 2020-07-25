@@ -9,22 +9,22 @@
 <% } %>
 <form method="POST" action="/add">
     <label>Name</label>
-    <input type="text" name="name">
+    <input required type="text" name="name">
     <br>
     <label>Description</label>
-    <input type="text" name="description">
+    <input required type="text" name="description">
     <br>
     <label>Item Code</label>
-    <input type="text" name="code">
+    <input required type="text" name="code">
     <br>
     <label>Quantity</label>
-    <input type="number" name="quantity">
+    <input required type="number" name="quantity">
     <br>
     <label>Weigh per item</label>
-    <input type="number" name="weigh_per_item">
+    <input required type="number" name="weigh_per_item">
     <br>
     <label>Location</label>
-    <input type="text" name="Location">
+    <input type="text" name="location">
     <br>
     <input type="submit" value="Submit">
 </form>

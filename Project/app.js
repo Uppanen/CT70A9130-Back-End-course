@@ -58,7 +58,8 @@ app.post('/add', function(req,res){
             description: req.body.description,
             code: req.body.code,
             quantity: req.body.quantity,
-            weigh: req.body.weigh_per_item
+            weigh: req.body.weigh_per_item,
+            location: req.body.location
         }
         db.warehouse.insert(newItem, function(err, result){
             if(err){
