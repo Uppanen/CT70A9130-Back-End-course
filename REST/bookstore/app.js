@@ -21,7 +21,7 @@ app.get('/api/genres', function(req,res){
         }
         res.json(genres);
     });
-}) 
+}); 
 
 app.get('/api/books', function(req,res){
     Book.getBooks(function(err, books){
@@ -30,7 +30,16 @@ app.get('/api/books', function(req,res){
         }
         res.json(books);
     });
-}) 
+}); 
+
+app.get('/api/books/:_id', function(req,res){
+    Book.getBookById(req.params._id, function(err, book){
+        if(err){
+            throw err;
+        }
+        res.json(book);
+    });
+}); 
 
 app.listen(3000);
 console.log('Running on port 3000');
